@@ -21,15 +21,20 @@ class TimeCountdown extends Component {
     }
   };
   render() {
-    const { questions } = this.props;
+    const { questions, user } = this.props;
     const timeEndQuiz = localStorage.getItem(TIME_END_QUIZ);
     return (
       <div className="time_countdown">
         <Card body outline color="primary">
           <CardBody>
-            <h4 className="text-primary">Trương Hữu Thành</h4>
-            <h6>Tên trường</h6>
-            <h6>Lớp</h6>
+            {user ? (
+              <div>
+                <h4 className="text-primary text-uppercase"><b>{user.HoTen}</b></h4>
+                <h6><b>{user.Truong}</b></h6>
+                <h6><b>{user.Lop}</b></h6>
+              </div>
+            ) : null}
+
             <h2 className="text-danger">
               <Countdown
                 date={Date.now() + (timeEndQuiz - Date.now())}
@@ -40,7 +45,7 @@ class TimeCountdown extends Component {
               <Badge color="secondary">Chưa trả lời</Badge>
               <Badge color="success">Đã trả lời</Badge>
             </h6>
-            <div id="list-quiz">
+            <div id="list-quiz" style={{ width: 240 }}>
               {questions.map((question, index) =>
                 question.Answersed !== null ? (
                   <a

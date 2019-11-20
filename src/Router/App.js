@@ -3,16 +3,17 @@ import Quiz from "../containers/Quiz";
 import Login from "../containers/Login";
 import Result from "../containers/Result";
 import MonitorQuiz from "../containers/MonitorQuiz";
-import NotFound from '../containers/NotFound';
-import { TIME_END_QUIZ } from '../utils/constants';
+import NotFound from "../containers/NotFound";
+import { TIME_END_QUIZ } from "../utils/constants";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect
 } from "react-router-dom";
+import Test from '../containers/NotFound/indextest';
 // import Auth from './Auth';
-const Auth = (path, Component) => {
+const Auth = ({path, Component}) => {
   return (
     <Route
       path={path}
@@ -44,9 +45,9 @@ function App() {
         <Route path="/resultmonitoring">
           <MonitorQuiz />
         </Route>
-        <Auth path="/results" Component={Result} />
+        <Auth path="/results" Component={Test} />
         <Route>
-          <NotFound/>
+          <NotFound />
         </Route>
         <Redirect to="/notfound" />
       </Switch>

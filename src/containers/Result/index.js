@@ -1,41 +1,41 @@
 import React, { Component } from "react";
-import successIcon from "../../static/images/check-circle-solid.svg";
-import {
-  Card,
-  CardBody,
-  Col
-} from "reactstrap";
-import axios from 'axios';
-import { submitQuiz } from '../../services/quizServices';
+import { Col } from "reactstrap";
+import { RESULT } from "../../utils/constants";
+import { withRouter } from "react-router-dom";
 class Result extends Component {
-  async componentDidMount(){
-    let data = [
-      {
-        UserId: "1",
-        QuestionId: 1,
-        ChoosenId: null
-      },
-      {
-        UserId: "1",
-        QuestionId: 2,
-        ChoosenId: null
-      }
-    ]
-    const res = submitQuiz(data)
+  constructor(props) {
+    super(props);
+    this.state = {
+      result: { NumCorrect: "...", TimeTaken: "..." }
+    };
   }
+  componentDidMount() {
+    const resultLocalStorage = localStorage.getItem(RESULT);
+    if (resultLocalStorage) {
+      const result = JSON.parse(resultLocalStorage);
+      this.setState({ result });
+    } else {
+      this.props.history.replace("/login");
+    }
+  }
+
   render() {
     return (
-        <Col sm={{ size: 6, offset: 3 }} >
-      <div className="result">
-        <Card body>
-          <CardBody>
-            <h3 className="text-center text-success mt-3"> <img className="success-icon" src={successIcon} />NỘP BÀI THÀNH CÔNG</h3>{" "}
-          </CardBody>
-        </Card>
-      </div>
+      <Col className="firework">
+        <div style={{ color: "white" }} className="result text-center">
+          <h1 style={{ color: "green" }}>NÔP BÀI THÀNH CÔNG</h1>
+          <h2>
+            Đểm <b>{this.state.result.NumCorrect}/60</b>
+          </h2>
+          <h2>Thời gian {this.state.result.TimeTaken.substring(3, 8)}</h2>
+          <div className="pyro">
+            <div className="before"></div>
+            <div className="after"></div>
+          </div>
+        </div>
       </Col>
     );
   }
 }
 
-export default Result;
+export default withRouter(Result);
