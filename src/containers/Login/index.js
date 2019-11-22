@@ -16,7 +16,7 @@ import { TIME_END_QUIZ, QUIZ, USER } from "../../utils/constants";
 import { requestLogin } from "../../services/userServices";
 import { getQuizSubmited } from "../../services/quizServices";
 import logoSo from "../../static/images/500x500.png";
-import backGround from '../../static/images/6912eb4da70b5e55071a.jpg';
+import backGround from "../../static/images/6912eb4da70b5e55071a.jpg";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -111,8 +111,9 @@ class Login extends Component {
             }}
           >
             <p>
-              <b>* Hướng dẫn đăng nhập</b>
+              <b>Hướng dẫn đăng nhập</b>
             </p>
+            <p><b>* Khối Trung học phổ thông</b></p>
             <p>
               - Học sinh sử dụng mã học sinh trên{" "}
               <b>hệ thống Cơ sở dữ liệu Giáo dục Trung học (chuyển trường) </b>
@@ -122,11 +123,14 @@ class Login extends Component {
               bài làm.
             </p>
             <p>
-              - Các học sinh được tham gia khi nhà trường đã làm công tác nộp dữ liệu
-              học sinh lên hệ thống <b>Cơ sỡ dữ liệu Giáo dục Trung học </b>
+              - Các học sinh được tham gia khi nhà trường đã làm công tác nộp dữ
+              liệu học sinh lên hệ thống{" "}
+              <b>Cơ sỡ dữ liệu Giáo dục Trung học </b>
               trước ngày
               <b> 18/11/2019</b>
             </p>
+            <p><b>* Khối Giáo dục thường xuyên</b></p>
+            <p>...</p>
             <p>
               - Khuyến khích sử dụng trình duyệt <b>Google Chrome</b> để phần
               thi diễn ra tốt nhất
