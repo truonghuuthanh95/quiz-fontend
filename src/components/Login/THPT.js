@@ -3,7 +3,8 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import Spinner from "../../components/Spinner";
 import { TIME_END_QUIZ, QUIZ, USER } from "../../utils/constants";
 import { requestLogin } from "../../services/userServices";
-export default class THPT extends Component {
+import { withRouter } from 'react-router-dom';
+class THPT extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -114,3 +115,4 @@ export default class THPT extends Component {
     );
   }
 }
+export default withRouter(THPT);

@@ -35,7 +35,10 @@ class Login extends Component {
             }}
           >
             <p>
-              <b>* Hướng dẫn đăng nhập</b>
+              <b>Hướng dẫn đăng nhập</b>
+            </p>
+            <p>
+              <b>* Khối Trung học phổ thông</b>
             </p>
             <p>
               - Học sinh sử dụng mã học sinh trên{" "}
@@ -53,8 +56,12 @@ class Login extends Component {
               <b> 18/11/2019</b>
             </p>
             <p>
-              - Khuyến khích sử dụng trình duyệt <b>Google Chrome</b> để phần
-              thi diễn ra tốt nhất
+              <b>* Khối Giáo dục thường xuyên</b>
+            </p>
+            <p>- Học sinh chọn TT, nhập các thông tin cần thiết để bắt đầu bài thi </p>
+            <p>
+              <i>Khuyến khích sử dụng trình duyệt <b>Google Chrome</b> để phần
+              thi diễn ra tốt nhất</i>
             </p>
           </div>
         </Col>

@@ -41,7 +41,7 @@ class TimeCountdown extends Component {
                 renderer={this.renderer}
               />
             </h2>
-            <h6>
+            <h6 id="mobile-display">
               <Badge color="secondary">Chưa trả lời</Badge>
               <Badge color="success">Đã trả lời</Badge>
             </h6>

@@ -7,7 +7,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginSelected: 'dwad'
+      loginSelected: ''
     };
   }
 
@@ -28,6 +28,7 @@ class Login extends Component {
                 color="primary"
                 value="thpt"
                 onClick={() => this.handleSelectLogin("thpt")}
+                size="lg"
               >
                 <b>TRUNG HỌC PHỔ THÔNG</b>
               </Button>
@@ -37,6 +38,7 @@ class Login extends Component {
                 color="primary"
                 value="gdtx"
                 onClick={() => this.handleSelectLogin("gdtx")}
+                size="lg"
               >
                 <b>GIÁO DỤC THƯỜNG XUYÊN</b>
               </Button>

@@ -12,7 +12,6 @@ import {
   Redirect
 } from "react-router-dom";
 import Test from '../containers/NotFound/indextest';
-import THPTLogin from '../containers/Login/THPTLogin';
 // import Auth from './Auth';
 const Auth = ({path, Component}) => {
   return (
@@ -33,7 +32,6 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Login />
-          {/* <THPTLogin/> */}
         </Route>
         <Route path="/login">
           <Login />

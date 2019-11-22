@@ -29,7 +29,7 @@
     -webkit-text-stroke-color: white;
 }
 #list-quiz a {
-  width: 40px;
+  width: 45px;
   height: 40px;
 }
 
@@ -250,5 +250,14 @@
   80%, 99.9% {
     margin-top: 30%;
     margin-left: 80%;
+  }
+}
+
+@media(max-width:736px) {
+  #list-quiz {
+    display: none;
+  }
+  #mobile-display {
+    display: none;
   }
 }
