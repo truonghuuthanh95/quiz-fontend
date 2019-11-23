@@ -9,7 +9,7 @@ class TimeCountdown extends Component {
   renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       // Render a completed state
-      this.props.handleSubmit();
+      setTimeout(() => this.props.handleSubmit(), 3000);
       return <Completionist />;
     } else {
       // Render a countdown

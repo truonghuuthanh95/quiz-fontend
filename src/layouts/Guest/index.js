@@ -58,10 +58,15 @@ class Login extends Component {
             <p>
               <b>* Khối Giáo dục thường xuyên</b>
             </p>
-            <p>- Học sinh chọn TT, nhập các thông tin cần thiết để bắt đầu bài thi </p>
             <p>
-              <i>Khuyến khích sử dụng trình duyệt <b>Google Chrome</b> để phần
-              thi diễn ra tốt nhất</i>
+              - Học sinh chọn TT GDTX, sau đó nhập các thông tin cần thiết để
+              bắt đầu bài thi{" "}
+            </p>
+            <p>
+              <i>
+                Khuyến khích sử dụng trình duyệt <b>Google Chrome</b> để phần
+                thi diễn ra tốt nhất
+              </i>
             </p>
           </div>
         </Col>

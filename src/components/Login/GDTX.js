@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import Spinner from "../../components/Spinner";
-export default class GDTX extends Component {
+import { registGDTX } from "../../services/userServices";
+import { TIME_END_QUIZ, QUIZ, USER } from "../../utils/constants";
+import { withRouter } from 'react-router-dom';
+ class GDTX extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,20 +23,39 @@ export default class GDTX extends Component {
       [name]: value
     });
   };
-  handelSubmit = event => {
+  handelSubmit = async event => {
     event.preventDefault();
     if (!this.state.schoolId) {
       this.setState({ errorMessage: "Vui lòng chọn trung tâm" });
     } else {
-      setTimeout(
-        () =>
-          this.setState({
-            isLoading: true,
-            errorMessage:
-              "Trường của bạn sẽ bắt đầu thi vào lúc 10:00 AM ngày 24/11/2019. Xin lỗi vì sự bất tiện này"
-          }),
-        1000
-      );
+      const {
+        studentName,
+        studentDOB,
+        schoolId,
+        email,
+        className
+      } = this.state;
+      this.setState({ isLoading: true, errorMessage: "" }, async () => {
+        const res = await registGDTX(
+          studentName,
+          schoolId,
+          studentDOB,
+          className,
+          email
+        );
+        this.setState({ isLoading: false });
+        if (res.StatusCode === 200) {
+          localStorage.setItem(USER, JSON.stringify(res.Result.User));
+          localStorage.setItem(
+            TIME_END_QUIZ,
+            new Date(res.Result.User.LoginAt).getTime() + 1.2e6
+          );
+          localStorage.setItem(QUIZ, JSON.stringify(res.Result.Questions));
+          return this.props.history.push("/quiz");
+        } else if (res.StatusCode === 302) {
+          this.setState({ errorMessage: "Hoc sinh đã nộp bài làm!" });
+        }
+      });
     }
   };
   render() {
@@ -51,7 +73,7 @@ export default class GDTX extends Component {
         <Form onSubmit={this.handelSubmit}>
           <FormGroup>
             <Label for="schoolId">
-              <b>TRƯỜNG GDTX</b>
+              <b>TT GDTX</b>
             </Label>
             <Input
               type="select"
@@ -150,6 +172,7 @@ export default class GDTX extends Component {
               onChange={this.handelChange}
               value={email}
               bsSize="lg"
+              maxLength="50"
             />
           </FormGroup>
           <h5 className="text-danger text-center">{errorMessage}</h5>
@@ -165,3 +188,4 @@ export default class GDTX extends Component {
     );
   }
 }
+export default withRouter(GDTX);
